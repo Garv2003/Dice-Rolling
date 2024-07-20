@@ -18,8 +18,8 @@
         this.diceOne = Math.floor((Math.random() * 6) + 1);
         this.diceTwo = Math.floor((Math.random() * 6) + 1);
         for(let i = 1; i <= 6; i++) {
-            document.getElementById('dice-one-side-' + i).classList.remove('show-' + i);
-            document.getElementById('dice-two-side-' + i).classList.remove('show-' + i);
+            $refs.diceOne.classList.remove('show-' + i);
+            $refs.diceTwo.classList.remove('show-' + i);
         }
         setTimeout(() => this.rollDice(), 1000);
     }
@@ -27,7 +27,7 @@
     <div class="game">
         <div id='roll' class='roll-button'><button @click="rollDice()">Roll dice!</button></div>
         <div class="container">
-            <div id='dice1' class="dice dice-one" :class="`show-${diceOne}`">
+            <div id='dice1' class="dice dice-one" :class="`show-${diceOne}`" x-ref="diceOne">
                 <div id="dice-one-side-one" class='side one'>
                     <div class="dot one-1"></div>
                 </div>
@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="container">
-            <div id='dice2' class="dice dice-two" :class="`show-${diceTwo}`">
+            <div id='dice2' class="dice dice-two" :class="`show-${diceTwo}`" x-ref="diceTwo">
                 <div id="dice-two-side-one" class='side one'>
                     <div class="dot one-1"></div>
                 </div>
